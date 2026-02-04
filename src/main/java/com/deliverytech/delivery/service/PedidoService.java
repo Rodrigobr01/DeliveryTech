@@ -1,0 +1,23 @@
+package com.deliverytech.delivery.service;
+
+import com.deliverytech.delivery.dto.ItemPedidoDTO;
+import com.deliverytech.delivery.dto.PedidoDTO;
+import com.deliverytech.delivery.dto.PedidoResponseDTO;
+import com.deliverytech.delivery.dto.PedidoResumoDTO;
+import com.deliverytech.delivery.entity.StatusPedido;
+import java.math.BigDecimal;
+import java.util.List;
+
+public interface PedidoService {
+    PedidoResponseDTO criarPedido(PedidoDTO dto);
+
+    PedidoResponseDTO buscarPedidoPorId(Long id);
+
+    List<PedidoResumoDTO> buscarPedidosPorCliente(Long clienteId);
+
+    PedidoResponseDTO atualizarStatusPedido(Long id, StatusPedido status);
+
+    BigDecimal calcularTotalPedido(Long restauranteId, List<ItemPedidoDTO> itens);
+
+    PedidoResponseDTO cancelarPedido(Long id);
+}
